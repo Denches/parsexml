@@ -16,15 +16,9 @@
                         <child is-file="true">
                             <name>file-1498940214.xhtml</name>
                         </child>
-                        <child is-file="true">
-                            <name>file-1498940215.java</name>
-                        </child>
                     </children>
                 </child>
             </children>
-        </child>
-        <child is-file="true">
-            <name>file-1498940333.xhtml</name>
         </child>
     </children>
 </node>
