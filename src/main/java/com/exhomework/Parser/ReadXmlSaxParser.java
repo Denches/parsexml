@@ -1,4 +1,4 @@
-package com.exhomework;
+package com.exhomework.Parser;
 
 import org.xml.sax.SAXException;
 
@@ -11,14 +11,14 @@ import java.util.List;
 
 public class ReadXmlSaxParser {
 
-    public List<String>parse(String fileName){
+    public List<String> parse(){
 
         SAXParserFactory factory = SAXParserFactory.newInstance();
         SaxParserHandler handler = new SaxParserHandler();
 
         try {
             SAXParser saxParser = factory.newSAXParser();
-            File file = new File(fileName);
+            File file = new File(ArgumentParser.getInputFileName());
 
             saxParser.parse(file, handler);
 
@@ -26,6 +26,6 @@ public class ReadXmlSaxParser {
             e.printStackTrace();
         }
 
-    return handler.getPaths();
+        return handler.getPaths();
     }
 }

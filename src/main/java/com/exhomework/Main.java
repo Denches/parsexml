@@ -1,26 +1,19 @@
 package com.exhomework;
 
-import java.util.List;
+import com.exhomework.Parser.ArgumentParser;
+import com.exhomework.builder.Factory;
+import com.exhomework.builder.Search;
+import com.exhomework.exception.ArgumentException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ArgumentException {
 
-        ReadXmlSaxParser readXmlSaxParser = new ReadXmlSaxParser();
+        ArgumentParser argumentProcess = new ArgumentParser(args);
 
-        String fileName = null;
-
-        if (args[0].equals("-f")){
-            fileName = args[1];
-        }
-
-        if (args.length > 2 && args[2].equals("-s")){
-            Filter.setFilter(args[3]);
-        }
-
-        List<String> pathList = readXmlSaxParser.parse(fileName);
-
-        Filter.search(pathList);
+        Factory factory = new Factory();
+        Search search = factory.filter(TypeOfFilter.argForPrint());
+        search.print();
 
     }
 }
