@@ -23,10 +23,6 @@ public class SaxParserHandler extends DefaultHandler {
     public List<String> getPaths(){ return paths; }
     public List<String> pathList = new ArrayList<>();
 
-    public Node getNode(){
-        return node;
-    }
-
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes)  {
 
@@ -62,7 +58,6 @@ public class SaxParserHandler extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) {
 
-
         if (qName.equals(TAG_NAME)){
             child.setName(buffer.toString());
             pathList.add(child.getName());
@@ -89,35 +84,15 @@ public class SaxParserHandler extends DefaultHandler {
                 children = child.getChildren();
                 IntStream.range(0, 2).forEach(i -> pathList.remove(pathList.size() - 1));
             }
-
-
         }
     }
-
 
     @Override
     public void characters(char[] ch, int start, int length) {
 
         if (currentTamName.equals(TAG_NAME)){
             buffer.append(new String(ch,start,length).trim());
-
-//            if (child.isFile()){
-//                paths.add(buffer.toString());
-//
-//                buffer.delete(buffer.length() - child.getName().length(), buffer.length());
-//            }else {
-//
-//                if (!buffer.toString().equals("/")){
-//                    buffer.append("/");
-//                }
-//                buffer.append("/");
-//            }
         }
     }
-
-
-
-
-
-    }
+}
 
