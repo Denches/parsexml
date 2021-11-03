@@ -1,7 +1,7 @@
 package com.exhomework;
 
 import com.exhomework.Parser.ArgumentParser;
-import com.exhomework.builder.Factory;
+import com.exhomework.builder.FactoryBuilderComparator;
 import com.exhomework.builder.Search;
 import com.exhomework.exception.ArgumentException;
 
@@ -11,7 +11,7 @@ public class Main {
 
         ArgumentParser argumentProcess = new ArgumentParser(args);
 
-        Factory factory = new Factory();
+        FactoryBuilderComparator factory = new FactoryBuilderComparator();
         Search search = factory.filter(TypeOfFilter.argForPrint());
         search.print();
 

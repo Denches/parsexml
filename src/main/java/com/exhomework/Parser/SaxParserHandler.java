@@ -70,8 +70,8 @@ public class SaxParserHandler extends DefaultHandler {
                 } else {
                     dir = new String(ch, start, length);
 
-                    if (!dir.equals("/")){
-                        pathList.add(dir + "/");
+                    if (!dir.equals(SPLIT_DIR)){
+                        pathList.add(dir + SPLIT_DIR);
                     } else{
                         pathList.add(dir);
                     }
