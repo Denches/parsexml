@@ -2,9 +2,9 @@ package com.exhomework.comparator;
 
 import com.exhomework.TypeOfFilter;
 
-public class Mask extends Search{
+public class MaskComparator extends AbstractComparator {
     @Override
-    public boolean comparator() {
+    public boolean compare() {
 
         return name.matches("." + TypeOfFilter.searchType);
     }

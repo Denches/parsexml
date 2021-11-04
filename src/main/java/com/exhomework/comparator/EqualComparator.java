@@ -2,9 +2,9 @@ package com.exhomework.comparator;
 
 import com.exhomework.TypeOfFilter;
 
-public class Equal extends Search {
+public class EqualComparator extends AbstractComparator {
     @Override
-    public boolean comparator() {
+    public boolean compare() {
 
         return  name.contains(TypeOfFilter.searchType);
     }

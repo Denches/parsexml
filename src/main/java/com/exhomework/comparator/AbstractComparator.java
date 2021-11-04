@@ -1,15 +1,15 @@
 package com.exhomework.comparator;
 
-public abstract class Search {
+public abstract class AbstractComparator {
 
     private String dir;
     protected String name;
 
-    public abstract boolean comparator();
+    public abstract boolean compare();
 
     public void print(){
 
-            if (comparator()){
+            if (compare()){
                 System.out.println(dir);
             }
     }

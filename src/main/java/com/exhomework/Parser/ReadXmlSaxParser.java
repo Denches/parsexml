@@ -1,8 +1,8 @@
 package com.exhomework.Parser;
 
 import com.exhomework.TypeOfFilter;
-import com.exhomework.comparator.ComparatorFactory;
-import com.exhomework.comparator.Search;
+import com.exhomework.comparator.FactoryComparator;
+import com.exhomework.comparator.AbstractComparator;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -17,8 +17,8 @@ public class ReadXmlSaxParser {
 
         SAXParserFactory saxFactory = SAXParserFactory.newInstance();
 
-        ComparatorFactory builderComparator = new ComparatorFactory();
-        Search search = builderComparator.comparator(TypeOfFilter.argForPrint());
+        FactoryComparator comparatorFactory = new FactoryComparator();
+        AbstractComparator search = comparatorFactory.comparator(TypeOfFilter.argForPrint());
 
         SaxParserHandler handler = new SaxParserHandler(search);
 

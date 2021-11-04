@@ -2,10 +2,10 @@ package com.exhomework.comparator;
 
 import com.exhomework.TypeOfFilter;
 
-public class Regular extends Search {
+public class RegularComparator extends AbstractComparator {
 
     @Override
-    public boolean comparator() {
+    public boolean compare() {
 
         return name.matches(TypeOfFilter.searchType);
     }

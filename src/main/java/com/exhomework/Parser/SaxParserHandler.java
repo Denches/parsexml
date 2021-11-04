@@ -1,6 +1,6 @@
 package com.exhomework.Parser;
 
-import com.exhomework.comparator.Search;
+import com.exhomework.comparator.AbstractComparator;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -11,10 +11,10 @@ import static com.exhomework.constant.XConstant.*;
 
 public class SaxParserHandler extends DefaultHandler {
 
-    private Search search;
+    private AbstractComparator comparator;
 
-    public SaxParserHandler(Search search){
-        this.search = search;
+    public SaxParserHandler(AbstractComparator comparator){
+        this.comparator = comparator;
     }
 
     private String currentTamName;
@@ -60,7 +60,7 @@ public class SaxParserHandler extends DefaultHandler {
 
                 if(isFile){
 
-                    search.setName(buffer.toString());
+                    comparator.setName(buffer.toString());
                     pathList.add(buffer.toString());
 
                     buffer.setLength(0);
@@ -69,8 +69,8 @@ public class SaxParserHandler extends DefaultHandler {
                         buffer.append(path);
                     }
 
-                    search.setDir(buffer.toString());
-                    search.print();
+                    comparator.setDir(buffer.toString());
+                    comparator.print();
 
                     pathList.remove(pathList.size() - 1);
 

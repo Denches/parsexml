@@ -18,24 +18,31 @@ public class ArgumentParser {
     }
 
     private void validator(String[] args){
+        if (args == null || args.length < 2){
+            throw new ArgumentException("too few parameters");
+        }
 
         if (!args[0].equals(KEY_INPUT_FILE)){
             throw new ArgumentException("not supported key:" + args[0]);
         }
-
-        if (args.length > 2){
-            if (!args[2].equals(KEY_MACK)){
-                throw new ArgumentException("not supported key:" + args[2]);
-            }
+        if (args.length == 2){
+            return;
         }
+        if (args.length == 3){
+            throw new ArgumentException("not found search parameter");
+        }
+        if (!args[2].equals(KEY_MACK)){
+            throw new ArgumentException("not supported key:" + args[2]);
+        }
+
     }
 
     private void storeParams(String[] args){
         inputFileName = fileExists(args[1]);
-
         if (args.length > 3){
             searchType = args[3].replaceAll("'", "");
         }
+
     }
 
     private String fileExists(String fileName) {
