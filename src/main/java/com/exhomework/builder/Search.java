@@ -6,18 +6,23 @@ import java.util.List;
 
 public abstract class Search {
 
-    ReadXmlSaxParser readXmlSaxParser = new ReadXmlSaxParser();
+    private String dir;
+    protected String name;
 
-    public List<String> paths = readXmlSaxParser.parse();
-
-    public abstract boolean filter(String name);
+    public abstract boolean comparator();
 
     public void print(){
-        for (String s : paths) {
-            if (filter(s)){
-                System.out.println(s);
-            }
 
-        }
+            if (comparator()){
+                System.out.println(dir);
+            }
+    }
+
+    public void setDir(String dir) {
+        this.dir = dir;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

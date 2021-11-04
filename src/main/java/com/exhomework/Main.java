@@ -1,19 +1,15 @@
 package com.exhomework;
 
 import com.exhomework.Parser.ArgumentParser;
-import com.exhomework.builder.FactoryBuilderComparator;
-import com.exhomework.builder.Search;
-import com.exhomework.exception.ArgumentException;
+import com.exhomework.Parser.ReadXmlSaxParser;
 
 public class Main {
 
-    public static void main(String[] args) throws ArgumentException {
+    public static void main(String[] args) {
 
-        ArgumentParser argumentProcess = new ArgumentParser(args);
+        new ArgumentParser(args);
 
-        FactoryBuilderComparator factory = new FactoryBuilderComparator();
-        Search search = factory.filter(TypeOfFilter.argForPrint());
-        search.print();
-
+        ReadXmlSaxParser readXmlSaxParser = new ReadXmlSaxParser();
+        readXmlSaxParser.parse();
     }
 }

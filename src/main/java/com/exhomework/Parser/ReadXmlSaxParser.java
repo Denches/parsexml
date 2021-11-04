@@ -1,5 +1,8 @@
 package com.exhomework.Parser;
 
+import com.exhomework.TypeOfFilter;
+import com.exhomework.builder.FactoryBuilderComparator;
+import com.exhomework.builder.Search;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -11,21 +14,24 @@ import java.util.List;
 
 public class ReadXmlSaxParser {
 
-    public List<String> parse(){
+    public void parse(){
 
-        SAXParserFactory factory = SAXParserFactory.newInstance();
-        SaxParserHandler handler = new SaxParserHandler();
+        SAXParserFactory saxFactory = SAXParserFactory.newInstance();
+
+        FactoryBuilderComparator builderComparator = new FactoryBuilderComparator();
+        Search search = builderComparator.comparator(TypeOfFilter.argForPrint());
+
+        SaxParserHandler handler = new SaxParserHandler(search);
 
         try {
-            SAXParser saxParser = factory.newSAXParser();
+            SAXParser saxParser = saxFactory.newSAXParser();
             File file = new File(ArgumentParser.getInputFileName());
 
             saxParser.parse(file, handler);
 
         } catch (IOException | ParserConfigurationException | SAXException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
         }
 
-        return handler.getPaths();
     }
 }

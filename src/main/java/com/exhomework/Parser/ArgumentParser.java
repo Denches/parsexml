@@ -12,12 +12,12 @@ public class ArgumentParser {
      private static String searchType;
 
 
-    public ArgumentParser(String[] args) throws ArgumentException {
+    public ArgumentParser(String[] args) {
         validator(args);
         storeParams(args);
     }
 
-    private void validator(String[] args) throws ArgumentException {
+    private void validator(String[] args){
 
         if (!args[0].equals(KEY_INPUT_FILE)){
             throw new ArgumentException("not supported key:" + args[0]);
@@ -30,7 +30,7 @@ public class ArgumentParser {
         }
     }
 
-    private void storeParams(String[] args) throws ArgumentException {
+    private void storeParams(String[] args){
         inputFileName = fileExists(args[1]);
 
         if (args.length > 3){
@@ -38,7 +38,7 @@ public class ArgumentParser {
         }
     }
 
-    private String fileExists(String fileName) throws ArgumentException {
+    private String fileExists(String fileName) {
         String path = System.getProperty("user.dir");
         File f = new File(path + File.separator + fileName);
         if(f.exists() && f.isFile()){

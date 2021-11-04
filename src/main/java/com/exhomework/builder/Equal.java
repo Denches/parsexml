@@ -4,7 +4,7 @@ import com.exhomework.TypeOfFilter;
 
 public class Equal extends Search {
     @Override
-    public boolean filter(String name) {
+    public boolean comparator() {
 
         return  name.contains(TypeOfFilter.searchType);
     }

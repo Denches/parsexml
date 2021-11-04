@@ -2,7 +2,7 @@ package com.exhomework.builder;
 
 public class FactoryBuilderComparator {
 
-    public Search filter (SearchType searchType){
+    public Search comparator (SearchType searchType){
 
         return switch (searchType) {
             case Full -> new Full();

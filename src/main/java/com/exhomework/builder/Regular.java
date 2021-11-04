@@ -5,7 +5,7 @@ import com.exhomework.TypeOfFilter;
 public class Regular extends Search {
 
     @Override
-    public boolean filter(String name) {
+    public boolean comparator() {
 
         return name.matches(TypeOfFilter.searchType);
     }
