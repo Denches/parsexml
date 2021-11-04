@@ -5,9 +5,9 @@ import com.exhomework.comparator.SearchType;
 
 public class TypeOfFilter {
 
-    public static final String searchType = ArgumentParser.getSearchType();
+    public static final String searchType = ArgumentParser.getMask();
 
-    public static SearchType argForPrint(){
+    public static SearchType getSearchType(){
 
         if (searchType == null) {
             return SearchType.Full;
@@ -19,8 +19,8 @@ public class TypeOfFilter {
             return SearchType.Equals;
         } else if(searchType.contains(".*")){
             return SearchType.Regular;
-        } else {
-            return SearchType.Full;
         }
+
+        return SearchType.Full;
     }
 }

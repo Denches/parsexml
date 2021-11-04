@@ -9,7 +9,7 @@ import static com.exhomework.constant.XConstant.*;
 public class ArgumentParser {
 
      private static String inputFileName;
-     private static String searchType;
+     private static String mask;
 
 
     public ArgumentParser(String[] args) {
@@ -22,7 +22,7 @@ public class ArgumentParser {
             throw new ArgumentException("too few parameters");
         }
 
-        if (!args[0].equals(KEY_INPUT_FILE)){
+        if (!KEY_INPUT_FILE.equals(args[0])){
             throw new ArgumentException("not supported key:" + args[0]);
         }
         if (args.length == 2){
@@ -31,7 +31,7 @@ public class ArgumentParser {
         if (args.length == 3){
             throw new ArgumentException("not found search parameter");
         }
-        if (!args[2].equals(KEY_MACK)){
+        if (!(KEY_MACK.equals(args[2]) || KEY_MACK_REGULAR.equals(args[2]))){
             throw new ArgumentException("not supported key:" + args[2]);
         }
 
@@ -40,7 +40,7 @@ public class ArgumentParser {
     private void storeParams(String[] args){
         inputFileName = fileExists(args[1]);
         if (args.length > 3){
-            searchType = args[3].replaceAll("'", "");
+            mask = args[3].replaceAll("'", "");
         }
 
     }
@@ -60,7 +60,7 @@ public class ArgumentParser {
         return inputFileName;
     }
 
-    public static String getSearchType() {
-        return searchType;
+    public static String getMask() {
+        return mask;
     }
 }

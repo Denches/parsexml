@@ -61,6 +61,7 @@ public class SaxParserHandler extends DefaultHandler {
                 if(isFile){
 
                     comparator.setName(buffer.toString());
+
                     pathList.add(buffer.toString());
 
                     buffer.setLength(0);
