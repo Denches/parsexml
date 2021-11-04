@@ -1,9 +1,5 @@
 package com.exhomework.builder;
 
-import com.exhomework.Parser.ReadXmlSaxParser;
-
-import java.util.List;
-
 public abstract class Search {
 
     private String dir;
