@@ -59,6 +59,8 @@ public class SaxParserHandler extends DefaultHandler {
                 buffer.append(ch, start, length);
 
                 if(isFile){
+                    search.setName(buffer.toString());
+
                     pathList.add(buffer.toString());
                     buffer.setLength(0);
 
@@ -67,7 +69,6 @@ public class SaxParserHandler extends DefaultHandler {
                     }
                     dir = buffer.toString();
 
-                    search.setName(buffer.toString());
                     search.setDir(dir);
                     search.print();
 
