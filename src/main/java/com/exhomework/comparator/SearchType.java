@@ -1,4 +1,4 @@
-package com.exhomework.builder;
+package com.exhomework.comparator;
 
 public enum SearchType {
     Full,

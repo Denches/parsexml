@@ -1,6 +1,6 @@
-package com.exhomework.builder;
+package com.exhomework.comparator;
 
-public class FactoryBuilderComparator {
+public class ComparatorFactory {
 
     public Search comparator (SearchType searchType){
 

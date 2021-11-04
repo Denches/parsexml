@@ -1,12 +1,11 @@
 package com.exhomework.Parser;
 
-import com.exhomework.builder.Search;
+import com.exhomework.comparator.Search;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 import static com.exhomework.constant.XConstant.*;
 
@@ -18,7 +17,6 @@ public class SaxParserHandler extends DefaultHandler {
         this.search = search;
     }
 
-    private String dir;
     private String currentTamName;
     private boolean isFile = false;
     private List<String> pathList = new ArrayList<>();
@@ -43,7 +41,9 @@ public class SaxParserHandler extends DefaultHandler {
         if (currentTamName != null){
             if(currentTamName.equals(TAG_CHILDREN)){
                 if (pathList.size() > 1) {
-                    IntStream.range(0, 2).forEach(i -> pathList.remove(pathList.size() - 1));
+
+                    pathList.remove(pathList.size() - 1);
+                    pathList.remove(pathList.size() - 1);
                 }
             }
         }
@@ -59,17 +59,17 @@ public class SaxParserHandler extends DefaultHandler {
                 buffer.append(ch, start, length);
 
                 if(isFile){
-                    search.setName(buffer.toString());
 
+                    search.setName(buffer.toString());
                     pathList.add(buffer.toString());
+
                     buffer.setLength(0);
 
                     for (String path : pathList){
                         buffer.append(path);
                     }
-                    dir = buffer.toString();
 
-                    search.setDir(dir);
+                    search.setDir(buffer.toString());
                     search.print();
 
                     pathList.remove(pathList.size() - 1);
@@ -78,6 +78,7 @@ public class SaxParserHandler extends DefaultHandler {
                     pathList.add(buffer.toString());
 
                     if (pathList.size() > 0) {
+
                         if (!pathList.get(pathList.size() - 1).equals(SPLIT_DIR)) {
                             pathList.add(SPLIT_DIR);
                         }

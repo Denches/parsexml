@@ -1,7 +1,7 @@
 package com.exhomework;
 
 import com.exhomework.Parser.ArgumentParser;
-import com.exhomework.builder.SearchType;
+import com.exhomework.comparator.SearchType;
 
 public class TypeOfFilter {
 
