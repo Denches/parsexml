@@ -78,11 +78,8 @@ public class SaxParserHandler extends DefaultHandler {
                 } else{
                     pathList.add(buffer.toString());
 
-                    if (pathList.size() > 0) {
-
-                        if (!pathList.get(pathList.size() - 1).equals(SPLIT_DIR)) {
-                            pathList.add(SPLIT_DIR);
-                        }
+                    if (!buffer.toString().equals(SPLIT_DIR)){
+                        pathList.add(SPLIT_DIR);
                     }
                 }
             }
