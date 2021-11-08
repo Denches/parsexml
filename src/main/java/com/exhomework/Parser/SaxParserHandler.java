@@ -18,6 +18,7 @@ public class SaxParserHandler extends DefaultHandler {
     }
 
     private String currentTamName;
+    private String name;
     private boolean isFile = false;
     private List<String> pathList = new ArrayList<>();
     private StringBuilder buffer = new StringBuilder();
@@ -56,29 +57,24 @@ public class SaxParserHandler extends DefaultHandler {
     public void characters(char[] ch, int start, int length) {
         if (currentTamName != null){
             if (currentTamName.equals(TAG_NAME)) {
-                buffer.append(ch, start, length);
+                name = new String(ch, start, length);
 
                 if(isFile){
 
-                    comparator.setName(buffer.toString());
-
-                    pathList.add(buffer.toString());
-
-                    buffer.setLength(0);
+                    pathList.add(name);
 
                     for (String path : pathList){
                         buffer.append(path);
                     }
 
-                    comparator.setDir(buffer.toString());
-                    comparator.print();
+                    comparator.print(name, buffer.toString());
 
                     pathList.remove(pathList.size() - 1);
 
                 } else{
-                    pathList.add(buffer.toString());
+                    pathList.add(name);
 
-                    if (!buffer.toString().equals(SPLIT_DIR)){
+                    if (!name.equals(SPLIT_DIR)){
                         pathList.add(SPLIT_DIR);
                     }
                 }
@@ -86,4 +82,3 @@ public class SaxParserHandler extends DefaultHandler {
         }
     }
 }
-

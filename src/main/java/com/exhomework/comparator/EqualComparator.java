@@ -4,8 +4,8 @@ import com.exhomework.TypeOfFilter;
 
 public class EqualComparator extends AbstractComparator {
     @Override
-    public boolean compare() {
+    public boolean compare(String name) {
 
-        return  name.contains(TypeOfFilter.searchType);
+        return name.equals(TypeOfFilter.searchType);
     }
 }
