@@ -48,7 +48,6 @@ public class SaxParserHandler extends DefaultHandler {
                 }
             }
         }
-        isFile = false;
         currentTamName = null;
         buffer.setLength(0);
     }
