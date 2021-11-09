@@ -5,8 +5,8 @@ import com.exhomework.TypeOfFilter;
 public class RegularComparator extends AbstractComparator {
 
     @Override
-    public boolean compare(String name) {
+    public boolean compare(String filename) {
 
-        return name.matches(TypeOfFilter.searchType);
+        return filename.matches(TypeOfFilter.searchType);
     }
 }

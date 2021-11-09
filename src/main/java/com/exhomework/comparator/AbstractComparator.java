@@ -2,11 +2,11 @@ package com.exhomework.comparator;
 
 public abstract class AbstractComparator {
 
-    public abstract boolean compare(String name);
+    public abstract boolean compare(String filename);
 
-    public void print(String name, String dir){
+    public void print(String filename, String dir){
 
-            if (compare(name)){
+            if (compare(filename)){
                 System.out.println(dir);
             }
     }
