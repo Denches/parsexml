@@ -17,6 +17,9 @@ public class ReadXmlSaxParser {
 
         SAXParserFactory saxFactory = SAXParserFactory.newInstance();
 
+        saxFactory.setValidating(true);
+        saxFactory.setNamespaceAware(false);
+
         FactoryComparator factoryComparator = new FactoryComparator();
         AbstractComparator comparator = factoryComparator.comparator(TypeOfFilter.getSearchType());
 
