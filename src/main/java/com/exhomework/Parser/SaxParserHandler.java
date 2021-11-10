@@ -41,9 +41,7 @@ public class SaxParserHandler extends DefaultHandler {
 
         if (currentTamName != null){
             if(currentTamName.equals(TAG_CHILDREN)){
-                if (dir.size() > 1) {
-
-                    dir.remove(dir.size() - 1);
+                if (dir.size() > 0) {
                     dir.remove(dir.size() - 1);
                 }
             }
@@ -60,10 +58,10 @@ public class SaxParserHandler extends DefaultHandler {
                 if(isFile){
                     comparator.print(name, getCurDir());
                 } else{
-                    dir.add(name);
-
                     if (!name.equals(SPLIT_DIR)){
-                        dir.add(SPLIT_DIR);
+                        dir.add(name + SPLIT_DIR);
+                    }else {
+                        dir.add(name);
                     }
                 }
             }
