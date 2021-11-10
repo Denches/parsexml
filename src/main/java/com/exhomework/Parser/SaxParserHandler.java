@@ -6,6 +6,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.exhomework.constant.XConstant.*;
 
@@ -20,8 +21,7 @@ public class SaxParserHandler extends DefaultHandler {
     private String currentTamName;
     private String name;
     private boolean isFile = false;
-    private List<String> pathList = new ArrayList<>();
-    private StringBuilder buffer = new StringBuilder();
+    private List<String> dir = new ArrayList<>();
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes)  {
@@ -41,15 +41,14 @@ public class SaxParserHandler extends DefaultHandler {
 
         if (currentTamName != null){
             if(currentTamName.equals(TAG_CHILDREN)){
-                if (pathList.size() > 1) {
+                if (dir.size() > 1) {
 
-                    pathList.remove(pathList.size() - 1);
-                    pathList.remove(pathList.size() - 1);
+                    dir.remove(dir.size() - 1);
+                    dir.remove(dir.size() - 1);
                 }
             }
         }
         currentTamName = null;
-        buffer.setLength(0);
     }
 
     @Override
@@ -59,25 +58,21 @@ public class SaxParserHandler extends DefaultHandler {
                 name = new String(ch, start, length);
 
                 if(isFile){
-
-                    pathList.add(name);
-
-                    for (String path : pathList){
-                        buffer.append(path);
-                    }
-
-                    comparator.print(name, buffer.toString());
-
-                    pathList.remove(pathList.size() - 1);
-
+                    comparator.print(name, getCurDir());
                 } else{
-                    pathList.add(name);
+                    dir.add(name);
 
                     if (!name.equals(SPLIT_DIR)){
-                        pathList.add(SPLIT_DIR);
+                        dir.add(SPLIT_DIR);
                     }
                 }
             }
         }
+    }
+
+    private String getCurDir() {
+        return dir.stream()
+                .filter(e -> !equals(""))
+                .collect(Collectors.joining());
     }
 }

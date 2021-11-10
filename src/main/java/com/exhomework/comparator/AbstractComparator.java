@@ -7,7 +7,7 @@ public abstract class AbstractComparator {
     public void print(String filename, String dir){
 
             if (compare(filename)){
-                System.out.println(dir);
+                System.out.println(dir + filename);
             }
     }
 }
