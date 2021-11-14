@@ -1,12 +1,25 @@
 package com.exhomework.comparator;
 
-import com.exhomework.TypeOfFilter;
+import com.exhomework.domain.ArgumentList;
 
-public class RegularComparator extends AbstractComparator {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class RegularComparator extends Comparator {
+
+    private final Pattern pattern;
+
+    public RegularComparator(ArgumentList argument) {
+        super(argument);
+
+        pattern = Pattern.compile(argument.getMask());
+    }
 
     @Override
     public boolean compare(String filename) {
 
-        return filename.matches(TypeOfFilter.searchType);
+        Matcher matcher = pattern.matcher(filename);
+
+        return matcher.matches();
     }
 }

@@ -9,4 +9,12 @@ public class XConstant {
     public static final String KEY_MACK_REGULAR = "-S";
     public static final String IS_FILE = "is-file";
     public static final String SPLIT_DIR = "/";
+    public static final String SINGLE_QUOTE = "'";
+
+    public enum SearchType {
+        Full,
+        Equals,
+        Mask,
+        Regular
+    }
 }

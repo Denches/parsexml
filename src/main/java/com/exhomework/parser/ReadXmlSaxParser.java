@@ -1,8 +1,9 @@
-package com.exhomework.Parser;
+package com.exhomework.parser;
 
-import com.exhomework.TypeOfFilter;
-import com.exhomework.comparator.FactoryComparator;
-import com.exhomework.comparator.AbstractComparator;
+import com.exhomework.comparator.Comparator;
+import com.exhomework.comparator.FactoryMethod;
+import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.PathToFilePrinter;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -13,21 +14,22 @@ import java.io.IOException;
 
 public class ReadXmlSaxParser {
 
-    public void parse(){
+    public void parse(ArgumentList argument){
 
         SAXParserFactory saxFactory = SAXParserFactory.newInstance();
 
         saxFactory.setValidating(true);
         saxFactory.setNamespaceAware(false);
 
-        FactoryComparator factoryComparator = new FactoryComparator();
-        AbstractComparator comparator = factoryComparator.comparator(TypeOfFilter.getSearchType());
+        FactoryMethod factoryMethod = new FactoryMethod();
+        Comparator comparator = factoryMethod.comparator(argument.getSearchType(), argument);
+        PathToFilePrinter path = new PathToFilePrinter(comparator);
 
-        SaxParserHandler handler = new SaxParserHandler(comparator);
+        SaxParserHandler handler = new SaxParserHandler(path);
 
         try {
             SAXParser saxParser = saxFactory.newSAXParser();
-            File file = new File(ArgumentParser.getInputFileName());
+            File file = new File(argument.getInputFileName());
 
             saxParser.parse(file, handler);
 

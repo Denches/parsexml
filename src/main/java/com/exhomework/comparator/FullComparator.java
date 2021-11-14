@@ -1,6 +1,12 @@
 package com.exhomework.comparator;
 
-public class FullComparator extends AbstractComparator {
+import com.exhomework.domain.ArgumentList;
+
+public class FullComparator extends Comparator {
+
+    public FullComparator(ArgumentList argument) {
+        super(argument);
+    }
 
     @Override
     public boolean compare(String name) {
