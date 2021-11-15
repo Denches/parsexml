@@ -19,21 +19,18 @@ public class SaxParserHandler extends DefaultHandler {
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes)  {
 
-        if (qName.equalsIgnoreCase(TAG_CHILD)) {
+        if (TAG_CHILD.equalsIgnoreCase(qName)) {
             path.setFile(Boolean.parseBoolean(attributes.getValue(IS_FILE)));
         }
-        active = qName.equals(TAG_NAME);
+        active = TAG_NAME.equals(qName);
     }
 
     @Override
     public void endElement(String uri, String localName, String qName) {
 
-        if (qName.equals(TAG_NAME)){
-            active = false;
-        }
-
-        if(TAG_CHILDREN.equals(qName)){
-            path.closeDir();
+        switch(qName){
+            case TAG_NAME -> active = false;
+            case TAG_CHILDREN -> path.closeDir();
         }
     }
 
