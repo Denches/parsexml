@@ -1,30 +1,23 @@
 package com.exhomework.comparator;
 
 import com.exhomework.constant.XConstant;
-import com.exhomework.domain.ArgumentList;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FactoryMethodTest {
+public class FactoryMethodTest extends Initialization {
 
     private static FactoryMethod factory;
-    private static ArgumentList argument;
 
     @BeforeAll
     static void init(){
         factory = new FactoryMethod();
-        argument = new ArgumentList() {};
-        argument.setMask("\\w");
+        argument.setMask("");
     }
 
+    @DisplayName("Create classes with correct type")
     @Test
     void createClassesWithCorrectType(){
-        FactoryMethod factory = new FactoryMethod();
-
         Assertions.assertAll(
                 () -> assertEquals(EqualComparator.class, factory.comparator(XConstant.SearchType.Equals,argument).getClass()),
                 () -> assertEquals(FullComparator.class, factory.comparator(XConstant.SearchType.Full,argument).getClass()),
@@ -35,7 +28,6 @@ public class FactoryMethodTest {
 
     @AfterAll
     static void tearDown(){
-        argument = null;
         factory = null;
     }
 }

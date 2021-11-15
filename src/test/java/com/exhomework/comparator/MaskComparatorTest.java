@@ -1,18 +1,15 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-public class MaskComparatorTest {
-
-    private static Comparator equal;
-    private static ArgumentList argument;
+public class MaskComparatorTest extends Initialization {
 
     @BeforeAll
    static void init(){
-        argument = new ArgumentList() {};
         argument.setMask("*.java");
-
         equal = new MaskComparator(argument);
     }
 
@@ -32,11 +29,5 @@ public class MaskComparatorTest {
     @Test
     void filenameIsNull(){
         Assertions.assertThrows(NullPointerException.class, () -> equal.compare(null));
-    }
-
-    @AfterAll
-    static void tearDown(){
-        argument = null;
-        equal = null;
     }
 }

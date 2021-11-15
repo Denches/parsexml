@@ -1,18 +1,15 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
-public class EqualComparatorTest {
-
-    private static Comparator equal;
-    private static ArgumentList argument;
+public class EqualComparatorTest extends Initialization {
 
     @BeforeAll
     static void init(){
-        argument = new ArgumentList() {};
         argument.setMask("file-776194140.xml");
-
         equal = new EqualComparator(argument);
     }
 
@@ -28,9 +25,4 @@ public class EqualComparatorTest {
         Assertions.assertFalse(equal.compare("file-1073842118.java"));
     }
 
-    @AfterAll
-    static void tearDown(){
-        argument = null;
-        equal = null;
-    }
 }

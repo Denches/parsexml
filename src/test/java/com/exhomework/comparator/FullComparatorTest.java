@@ -1,18 +1,12 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
 import org.junit.jupiter.api.*;
 
-public class FullComparatorTest {
-
-    private static Comparator equal;
-    private static ArgumentList argument;
+public class FullComparatorTest extends Initialization{
 
     @BeforeAll
     static void init(){
-        argument = new ArgumentList() {};
         argument.setMask(null);
-
         equal = new FullComparator(argument);
     }
 
@@ -27,11 +21,5 @@ public class FullComparatorTest {
     @Disabled("Not realised in the FullComparator.class")
     void notEquals(){
         Assertions.assertFalse(equal.compare("file-776194140.xml"));
-    }
-
-    @AfterAll
-    static void tearDown(){
-        argument = null;
-        equal = null;
     }
 }

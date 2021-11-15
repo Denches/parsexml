@@ -66,4 +66,19 @@ public class ArgumentParserTest {
                 () -> new ArgumentParser(
                         new String[]{KEY_INPUT_FILE, "file.xml", KEY_MACK_REGULAR, "test.java", "test"}));
     }
+
+    @DisplayName("File is not exist")
+    @Test
+    void FileIsNotExist(){
+        Assertions.assertThrows(ArgumentException.class,
+                () -> new ArgumentParser(
+                        new String[]{KEY_INPUT_FILE, "1.xml"}));
+    }
+
+    @DisplayName("File is exist")
+    @Test
+    void FileIsExist(){
+        Assertions.assertDoesNotThrow(() -> new ArgumentParser(
+                        new String[]{KEY_INPUT_FILE, "file.xml"}));
+    }
 }
