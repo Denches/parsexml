@@ -30,7 +30,7 @@ public class PathToFilePrinter {
     }
 
     private void print(String filename, String dir){
-        System.out.println(dir + SPLIT_DIR + filename);
+        System.out.println(dir + filename);
     }
 
     private String getCurDir() {
@@ -50,6 +50,6 @@ public class PathToFilePrinter {
     }
 
     public void setDir(String name) {
-        dir.add(dir.size() > 1 ? SPLIT_DIR + name : name);
+        dir.add(!name.equals(SPLIT_DIR) ? name + SPLIT_DIR : name);
     }
 }
