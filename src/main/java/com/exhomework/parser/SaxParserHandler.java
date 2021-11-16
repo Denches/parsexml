@@ -1,6 +1,6 @@
 package com.exhomework.parser;
 
-import com.exhomework.domain.PathToFilePrinter;
+import com.exhomework.comparator.Comparator;
 import org.xml.sax.Attributes;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -8,10 +8,10 @@ import static com.exhomework.constant.XConstant.*;
 
 public class SaxParserHandler extends DefaultHandler {
 
-    private PathToFilePrinter path;
+    private Comparator comparator;
 
-    public SaxParserHandler(PathToFilePrinter path){
-        this.path = path;
+    public SaxParserHandler(Comparator comparator){
+        this.comparator = comparator;
     }
 
     private boolean active;
@@ -20,7 +20,7 @@ public class SaxParserHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes)  {
 
         if (TAG_CHILD.equalsIgnoreCase(qName)) {
-            path.setFile(Boolean.parseBoolean(attributes.getValue(IS_FILE)));
+            comparator.setFile(Boolean.parseBoolean(attributes.getValue(IS_FILE)));
         }
         active = TAG_NAME.equals(qName);
     }
@@ -30,14 +30,14 @@ public class SaxParserHandler extends DefaultHandler {
 
         switch(qName){
             case TAG_NAME -> active = false;
-            case TAG_CHILDREN -> path.closeDir();
+            case TAG_CHILDREN -> comparator.closeDir();
         }
     }
 
     @Override
     public void characters(char[] ch, int start, int length) {
         if (active) {
-            path.store(new String(ch, start, length));
+            comparator.store(new String(ch, start, length));
         }
     }
 }

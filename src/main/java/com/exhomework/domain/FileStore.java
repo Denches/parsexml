@@ -1,27 +1,18 @@
 package com.exhomework.domain;
 
-import com.exhomework.comparator.Comparator;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.exhomework.constant.XConstant.SPLIT_DIR;
 
-public class PathToFilePrinter {
-
-    private final Comparator comparator;
-
+public abstract class FileStore {
     private boolean isFile;
     private final List<String> dir = new ArrayList<>();
-
-    public PathToFilePrinter(Comparator comparator) {
-        this.comparator = comparator;
-    }
 
     public void store(String name){
 
         if(isFile){
-            if (comparator.compare(name)){
+            if (compare(name)){
                 print(name, getCurDir());
             }
         } else{
@@ -52,4 +43,6 @@ public class PathToFilePrinter {
     public void setDir(String name) {
         dir.add(!name.equals(SPLIT_DIR) ? name + SPLIT_DIR : name);
     }
+
+    public abstract boolean compare(String filename);
 }

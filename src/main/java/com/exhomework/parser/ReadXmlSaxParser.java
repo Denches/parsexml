@@ -3,7 +3,6 @@ package com.exhomework.parser;
 import com.exhomework.comparator.Comparator;
 import com.exhomework.comparator.FactoryMethod;
 import com.exhomework.domain.ArgumentList;
-import com.exhomework.domain.PathToFilePrinter;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -23,9 +22,8 @@ public class ReadXmlSaxParser {
 
         FactoryMethod factoryMethod = new FactoryMethod();
         Comparator comparator = factoryMethod.comparator(argument.getSearchType(), argument);
-        PathToFilePrinter path = new PathToFilePrinter(comparator);
 
-        SaxParserHandler handler = new SaxParserHandler(path);
+        SaxParserHandler handler = new SaxParserHandler(comparator);
 
         try {
             SAXParser saxParser = saxFactory.newSAXParser();
