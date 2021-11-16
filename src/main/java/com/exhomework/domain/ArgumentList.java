@@ -2,7 +2,7 @@ package com.exhomework.domain;
 
 import com.exhomework.constant.XConstant.SearchType;
 
-public abstract class ArgumentList {
+public class ArgumentList {
 
     private String inputFileName;
     private String mask;

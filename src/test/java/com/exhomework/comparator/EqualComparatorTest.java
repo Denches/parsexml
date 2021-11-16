@@ -13,7 +13,6 @@ public class EqualComparatorTest extends Initialization {
         comparator = new EqualComparator(argument);
     }
 
-    @DisplayName("")
     @Test
     void equalCompare(){
         Assertions.assertAll(
