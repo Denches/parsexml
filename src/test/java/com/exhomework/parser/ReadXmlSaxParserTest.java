@@ -10,7 +10,6 @@ public class ReadXmlSaxParserTest {
     private ArgumentList argument;
     private ReadXmlSaxParser readXmlSaxParser;
 
-
     @BeforeEach
     void init(){
         readXmlSaxParser = new ReadXmlSaxParser();
