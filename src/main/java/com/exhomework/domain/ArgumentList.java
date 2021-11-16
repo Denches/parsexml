@@ -21,14 +21,20 @@ public abstract class ArgumentList {
     }
 
     public void setInputFileName(String inputFileName) {
-        this.inputFileName = inputFileName;
+        if (this.inputFileName == null){
+            this.inputFileName = inputFileName;
+        }
     }
 
     public void setMask(String mask) {
-        this.mask = mask;
+        if (this.mask == null){
+            this.mask = mask;
+        }
     }
 
     public void setSearchType(SearchType searchType) {
-        this.searchType = searchType;
+        if (this.searchType == null){
+            this.searchType = searchType;
+        }
     }
 }
