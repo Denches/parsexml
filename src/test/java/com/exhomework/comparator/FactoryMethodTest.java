@@ -29,5 +29,6 @@ public class FactoryMethodTest extends Initialization {
     @AfterAll
     static void tearDown(){
         factory = null;
+        argument  = null;
     }
 }
