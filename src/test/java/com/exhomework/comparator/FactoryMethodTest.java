@@ -9,8 +9,8 @@ public class FactoryMethodTest extends Initialization {
 
     private static FactoryMethod factory;
 
-    @BeforeAll
-    static void init(){
+    @BeforeEach
+    void init(){
         factory = new FactoryMethod();
         argument.setMask("");
     }
@@ -26,8 +26,8 @@ public class FactoryMethodTest extends Initialization {
         );
     }
 
-    @AfterAll
-    static void tearDown(){
+    @AfterEach
+    void tearDown(){
         factory = null;
         argument  = null;
     }

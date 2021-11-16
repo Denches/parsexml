@@ -1,28 +1,27 @@
 package com.exhomework.comparator;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class EqualComparatorTest extends Initialization {
 
-    @BeforeAll
-    static void init(){
+    @BeforeEach
+     void init(){
         argument.setMask("file-776194140.xml");
-        equal = new EqualComparator(argument);
+        comparator = new EqualComparator(argument);
     }
 
-    @DisplayName("Equals test")
+    @DisplayName("")
     @Test
-    void equals(){
-        Assertions.assertTrue(equal.compare("file-776194140.xml"));
-    }
-
-    @DisplayName("Not equals test")
-    @Test
-    void notEquals(){
-        Assertions.assertFalse(equal.compare("file-1073842118.java"));
+    void equalCompare(){
+        Assertions.assertAll(
+                () -> assertTrue(comparator.compare("file-776194140.xml")),
+                () -> assertFalse(comparator.compare("file-1073842118.java")),
+                () -> assertFalse(comparator.compare("file-123.java")),
+                () -> assertFalse(comparator.compare("file-1498940214.xhtml"))
+        );
     }
 
 }

@@ -19,20 +19,15 @@ public class ReadXmlSaxParserTest {
     @DisplayName("ArgumentList is not null")
     @Test
     void argumentListISNotNull(){
-
         argument = new ArgumentParser( new String[]{KEY_INPUT_FILE, "file.xml"});
-
         Assertions.assertDoesNotThrow(() -> readXmlSaxParser.parse(argument));
     }
 
     @DisplayName("ArgumentList is null")
     @Test
     void argumentListIsNull(){
-
         argument = null;
-
         Assertions.assertThrows(NullPointerException.class, () -> readXmlSaxParser.parse(argument));
-
     }
 
     @AfterEach

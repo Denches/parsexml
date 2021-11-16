@@ -2,32 +2,26 @@ package com.exhomework.comparator;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class RegularComparatorTest extends Initialization{
 
-    @BeforeAll
-    static void init(){
-        argument.setMask("file-.*.j.*");
-        equal = new RegularComparator(argument);
+    @BeforeEach
+    void init(){
+        argument.setMask(".*?[a-z]{4}-\\d+\\.[a-z]+");
+        comparator = new RegularComparator(argument);
     }
 
-    @DisplayName("Equals test")
     @Test
-    void equals(){
-        Assertions.assertTrue(equal.compare("file-1073842118.java"));
-    }
-
-    @DisplayName("Not equals test")
-    @Test
-    void notEquals(){
-        Assertions.assertFalse(equal.compare("file-776194140.xml"));
-    }
-
-    @DisplayName("filename is null")
-    @Test
-    void filenameIsNull(){
-        Assertions.assertThrows(NullPointerException.class, () -> equal.compare(null));
+    void regularCompare(){
+        Assertions.assertAll(
+                () -> assertTrue(comparator.compare("file-776194140.xml")),
+                () -> assertTrue(comparator.compare("file-1073842118.java")),
+                () -> assertTrue(comparator.compare("file-123.java")),
+                () -> assertTrue(comparator.compare("file-1498940214.xhtml"))
+        );
     }
 }

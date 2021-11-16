@@ -5,26 +5,15 @@ import java.util.List;
 
 import static com.exhomework.constant.XConstant.SPLIT_DIR;
 
-public abstract class FileStore {
+public class FileStore {
     private boolean isFile;
     private final List<String> dir = new ArrayList<>();
 
-    public void store(String name){
-
-        if(isFile){
-            if (compare(name)){
-                print(name, getCurDir());
-            }
-        } else{
-            setDir(name);
-        }
-    }
-
-    private void print(String filename, String dir){
+    protected void print(String filename, String dir){
         System.out.println(dir + filename);
     }
 
-    private String getCurDir() {
+    protected String getCurDir() {
         return String.join("", dir);
     }
 
@@ -43,6 +32,4 @@ public abstract class FileStore {
     public void setDir(String name) {
         dir.add(!name.equals(SPLIT_DIR) ? name + SPLIT_DIR : name);
     }
-
-    public abstract boolean compare(String filename);
 }

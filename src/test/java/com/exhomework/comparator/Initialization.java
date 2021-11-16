@@ -2,16 +2,17 @@ package com.exhomework.comparator;
 
 import com.exhomework.domain.ArgumentList;
 import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
 
 public class Initialization {
 
-    protected static Comparator equal;
-    protected static ArgumentList argument = new ArgumentList() {};
+    protected Comparator comparator;
+    protected ArgumentList argument = new ArgumentList() {};
 
 
-    @AfterAll
-    static void tearDown(){
+    @AfterEach
+    void tearDown(){
         argument = null;
-        equal = null;
+        comparator = null;
     }
 }
