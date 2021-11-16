@@ -67,7 +67,7 @@ public class ArgumentParserTest {
                         new String[]{KEY_INPUT_FILE, "file.xml", KEY_MACK_REGULAR, "test.java", "test"}));
     }
 
-    @DisplayName("File is not exist")
+    @DisplayName("File doesn't exist")
     @Test
     void FileIsNotExist(){
         Assertions.assertThrows(ArgumentException.class,
@@ -75,7 +75,7 @@ public class ArgumentParserTest {
                         new String[]{KEY_INPUT_FILE, "1.xml"}));
     }
 
-    @DisplayName("File is exist")
+    @DisplayName("File exists")
     @Test
     void FileIsExist(){
         Assertions.assertDoesNotThrow(() -> new ArgumentParser(
