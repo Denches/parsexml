@@ -4,7 +4,7 @@ import com.exhomework.domain.ArgumentList;
 
 public class EqualComparator extends Comparator {
 
-    protected EqualComparator(ArgumentList argument) {
+    public EqualComparator(ArgumentList argument) {
         super(argument);
     }
 

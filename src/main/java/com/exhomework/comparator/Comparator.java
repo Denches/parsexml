@@ -7,7 +7,7 @@ public abstract class Comparator extends FileStore {
 
     ArgumentList argument;
 
-    protected Comparator(ArgumentList argument) {
+    public Comparator(ArgumentList argument) {
         this.argument = argument;
     }
 
