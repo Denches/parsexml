@@ -27,7 +27,7 @@ public class ReadXmlSaxParser {
 
         try {
             SAXParser saxParser = saxFactory.newSAXParser();
-            File file = new File(argument.getInputFileName());
+            File file = new File(argument.getPathToFilename());
 
             saxParser.parse(file, handler);
 

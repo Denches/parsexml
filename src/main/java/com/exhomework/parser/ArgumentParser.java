@@ -55,7 +55,7 @@ public class ArgumentParser extends ArgumentList {
     }
 
     private void storeParams(String[] args){
-        setInputFileName(fileExists(args[1]));
+        setpathToFilename(fileExists(args[1]));
 
         if (args.length > 2){
             if (KEY_MACK_REGULAR.equals(args[2])){
@@ -82,6 +82,7 @@ public class ArgumentParser extends ArgumentList {
         File f = new File(path + File.separator + fileName);
 
         if(f.exists() && f.isFile()){
+            setFilename(fileName);
             return f.getAbsolutePath();
         }else{
             throw new ArgumentException("input file doesn't exists");

@@ -48,7 +48,7 @@ public class ArgumentParserTest {
     @DisplayName("Test with two correct arguments")
     @Test
     void twoArguments(){
-        String expectedFileName = "C:\\JavaProj\\homeworks\\parsexml\\file.xml";
+        String expectedFileName = "file.xml";
         String expectedMask = null;
         SearchType expectedMaskType = SearchType.Full;
 
@@ -56,7 +56,7 @@ public class ArgumentParserTest {
 
         Assertions.assertAll(
                 () -> assertNotNull(argument),
-                () -> assertEquals(expectedFileName, argument.getInputFileName()),
+                () -> assertEquals(expectedFileName, argument.getFilename()),
                 () -> assertEquals(expectedMask, argument.getMask()),
                 () -> assertEquals(expectedMaskType,argument.getSearchType())
         );
@@ -77,7 +77,7 @@ public class ArgumentParserTest {
     @DisplayName("Test with four correct arguments")
     @Test
     void fourArguments(){
-        String expectedFileName = "C:\\JavaProj\\homeworks\\parsexml\\file.xml";
+        String expectedFileName = "file.xml";
         String expectedMask = "*.java";
         SearchType expectedMaskType = SearchType.Mask;
 
@@ -86,7 +86,7 @@ public class ArgumentParserTest {
 
         Assertions.assertAll(
                 () -> assertNotNull(argument),
-                () -> assertEquals(expectedFileName, argument.getInputFileName()),
+                () -> assertEquals(expectedFileName, argument.getFilename()),
                 () -> assertEquals(expectedMask, argument.getMask()),
                 () -> assertEquals(expectedMaskType,argument.getSearchType())
         );
@@ -131,14 +131,14 @@ public class ArgumentParserTest {
     @DisplayName("File exists")
     @Test
     void FileIsExist(){
-        String expectedFileName = "C:\\JavaProj\\homeworks\\parsexml\\file.xml";
+        String expectedFileName = "file.xml";
 
         ArgumentList argument = new ArgumentParser(
                 new String[]{KEY_INPUT_FILE, "file.xml"});
 
         Assertions.assertAll(
                 () -> assertNotNull(argument),
-                () -> assertEquals(expectedFileName, argument.getInputFileName())
+                () -> assertEquals(expectedFileName, argument.getFilename())
         );
     }
 }

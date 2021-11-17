@@ -4,12 +4,13 @@ import com.exhomework.constant.XConstant.SearchType;
 
 public class ArgumentList {
 
-    private String inputFileName;
+    private String pathToFilename;
+    private String filename;
     private String mask;
     private SearchType searchType = SearchType.Full;
 
-    public String getInputFileName() {
-        return inputFileName;
+    public String getPathToFilename() {
+        return pathToFilename;
     }
 
     public String getMask() {
@@ -20,8 +21,8 @@ public class ArgumentList {
         return searchType;
     }
 
-    public void setInputFileName(String inputFileName) {
-            this.inputFileName = inputFileName;
+    public void setpathToFilename(String pathToFilename) {
+            this.pathToFilename = pathToFilename;
     }
 
     public void setMask(String mask) {
@@ -30,5 +31,13 @@ public class ArgumentList {
 
     public void setSearchType(SearchType searchType) {
             this.searchType = searchType;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
     }
 }
