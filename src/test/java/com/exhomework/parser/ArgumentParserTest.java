@@ -56,7 +56,7 @@ public class ArgumentParserTest {
 
         Assertions.assertAll(
                 () -> assertNotNull(argument),
-                () -> assertEquals(expectedFileName, argument.getFilename()),
+                () -> assertEquals(expectedFileName, argument.getInputFilename()),
                 () -> assertEquals(expectedMask, argument.getMask()),
                 () -> assertEquals(expectedMaskType,argument.getSearchType())
         );
@@ -86,7 +86,7 @@ public class ArgumentParserTest {
 
         Assertions.assertAll(
                 () -> assertNotNull(argument),
-                () -> assertEquals(expectedFileName, argument.getFilename()),
+                () -> assertEquals(expectedFileName, argument.getInputFilename()),
                 () -> assertEquals(expectedMask, argument.getMask()),
                 () -> assertEquals(expectedMaskType,argument.getSearchType())
         );
@@ -138,7 +138,7 @@ public class ArgumentParserTest {
 
         Assertions.assertAll(
                 () -> assertNotNull(argument),
-                () -> assertEquals(expectedFileName, argument.getFilename())
+                () -> assertEquals(expectedFileName, argument.getInputFilename())
         );
     }
 }
