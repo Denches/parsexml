@@ -20,11 +20,9 @@ public class ApplicationTest {
     void noSearchArguments(){
         Main.main(new String[]{"-f", "file.xml"});
 
-        String expected = """
-                /file-776194140.xml\r
-                /dir-880176375/file-1073842118.java\r
-                /dir-880176375/dir-2145307015/file-1498940214.xhtml\r
-                """;
+        String expected = "/file-776194140.xml" + System.lineSeparator() +
+                          "/dir-880176375/file-1073842118.java" + System.lineSeparator() +
+                          "/dir-880176375/dir-2145307015/file-1498940214.xhtml" + System.lineSeparator();
         Assertions.assertEquals(expected, baos.toString());
     }
 
@@ -33,7 +31,7 @@ public class ApplicationTest {
     void equalSearch(){
         Main.main(new String[]{"-f", "file.xml", "-s", "file-1498940214.xhtml"});
 
-        String expected = "/dir-880176375/dir-2145307015/file-1498940214.xhtml\r\n";
+        String expected = "/dir-880176375/dir-2145307015/file-1498940214.xhtml" + System.lineSeparator();
         Assertions.assertEquals(expected, baos.toString());
     }
 
@@ -42,7 +40,7 @@ public class ApplicationTest {
     void maskSearch(){
         Main.main(new String[]{"-f", "file.xml", "-s", "'*.java'"});
 
-        String expected = "/dir-880176375/file-1073842118.java\r\n";
+        String expected = "/dir-880176375/file-1073842118.java" + System.lineSeparator();
         Assertions.assertEquals(expected, baos.toString());
     }
 
@@ -51,11 +49,9 @@ public class ApplicationTest {
     void regularSearch(){
         Main.main(new String[]{"-f", "file.xml", "-S", "'.*?[a-z]{4}-\\d+\\.[a-z]+'"});
 
-        String expected = """
-                /file-776194140.xml\r
-                /dir-880176375/file-1073842118.java\r
-                /dir-880176375/dir-2145307015/file-1498940214.xhtml\r
-                """;
+        String expected = "/file-776194140.xml" + System.lineSeparator() +
+                          "/dir-880176375/file-1073842118.java" + System.lineSeparator() +
+                          "/dir-880176375/dir-2145307015/file-1498940214.xhtml" + System.lineSeparator();
         Assertions.assertEquals(expected, baos.toString());
     }
 
