@@ -1,6 +1,6 @@
 package com.exhomework.parser;
 
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 import com.exhomework.exception.ArgumentException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -52,7 +52,7 @@ public class ArgumentParserTest {
         String expectedMask = null;
         SearchType expectedMaskType = SearchType.Full;
 
-        ArgumentList argument = new ArgumentParser(new String[]{KEY_INPUT_FILE, "file.xml"});
+        ArgumentStore argument = new ArgumentParser(new String[]{KEY_INPUT_FILE, "file.xml"});
 
         Assertions.assertAll(
                 () -> assertNotNull(argument),
@@ -81,7 +81,7 @@ public class ArgumentParserTest {
         String expectedMask = "*.java";
         SearchType expectedMaskType = SearchType.Mask;
 
-        ArgumentList argument = new ArgumentParser(
+        ArgumentStore argument = new ArgumentParser(
                 new String[]{KEY_INPUT_FILE, "file.xml", KEY_MACK, "'*.java'"});
 
         Assertions.assertAll(
@@ -133,7 +133,7 @@ public class ArgumentParserTest {
     void FileIsExist(){
         String expectedFileName = "file.xml";
 
-        ArgumentList argument = new ArgumentParser(
+        ArgumentStore argument = new ArgumentParser(
                 new String[]{KEY_INPUT_FILE, "file.xml"});
 
         Assertions.assertAll(

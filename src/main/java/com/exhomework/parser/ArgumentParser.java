@@ -1,13 +1,13 @@
 package com.exhomework.parser;
 
 import com.exhomework.exception.ArgumentException;
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 
 import java.io.File;
 
 import static com.exhomework.constant.XConstant.*;
 
-public class ArgumentParser extends ArgumentList {
+public class ArgumentParser extends ArgumentStore {
 
     public ArgumentParser(String[] args) {
         validator(args);

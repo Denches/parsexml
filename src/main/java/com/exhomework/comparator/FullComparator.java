@@ -1,10 +1,10 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 
 public class FullComparator extends Comparator {
 
-    public FullComparator(ArgumentList argument) {
+    public FullComparator(ArgumentStore argument) {
         super(argument);
     }
 

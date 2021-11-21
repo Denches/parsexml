@@ -4,6 +4,9 @@ import org.junit.jupiter.api.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ApplicationTest {
 
@@ -20,10 +23,14 @@ public class ApplicationTest {
     void noSearchArguments(){
         Main.main(new String[]{"-f", "file.xml"});
 
-        String expected = "/file-776194140.xml" + System.lineSeparator() +
-                          "/dir-880176375/file-1073842118.java" + System.lineSeparator() +
-                          "/dir-880176375/dir-2145307015/file-1498940214.xhtml" + System.lineSeparator();
-        Assertions.assertEquals(expected, baos.toString());
+        List<String> expected = new ArrayList<>(Arrays.asList(
+                "/file-776194140.xml",
+                "/dir-880176375/file-1073842118.java",
+                "/dir-880176375/dir-2145307015/file-1498940214.xhtml"));
+
+        List<String> actual = new ArrayList<>(Arrays.asList( baos.toString().split(System.lineSeparator()) ));
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @DisplayName("Equal search")
@@ -49,10 +56,14 @@ public class ApplicationTest {
     void regularSearch(){
         Main.main(new String[]{"-f", "file.xml", "-S", "'.*?[a-z]{4}-\\d+\\.[a-z]+'"});
 
-        String expected = "/file-776194140.xml" + System.lineSeparator() +
-                          "/dir-880176375/file-1073842118.java" + System.lineSeparator() +
-                          "/dir-880176375/dir-2145307015/file-1498940214.xhtml" + System.lineSeparator();
-        Assertions.assertEquals(expected, baos.toString());
+        List<String> expected = new ArrayList<>(Arrays.asList(
+                "/file-776194140.xml",
+                "/dir-880176375/file-1073842118.java",
+                "/dir-880176375/dir-2145307015/file-1498940214.xhtml"));
+
+        List<String> actual = new ArrayList<>(Arrays.asList( baos.toString().split(System.lineSeparator()) ));
+
+        Assertions.assertEquals(expected, actual);
     }
 
     @AfterEach

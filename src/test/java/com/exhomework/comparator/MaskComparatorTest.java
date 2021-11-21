@@ -1,6 +1,6 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ public class MaskComparatorTest {
 
     @Test
     void maskCompare(){
-        ArgumentList argument = new ArgumentList();
+        ArgumentStore argument = new ArgumentStore();
         argument.setMask("*.java");
         Comparator comparator = new MaskComparator(argument);
 

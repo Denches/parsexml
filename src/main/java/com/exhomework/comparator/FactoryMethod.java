@@ -1,11 +1,11 @@
 package com.exhomework.comparator;
 
 import com.exhomework.constant.XConstant.SearchType;
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 
 public class FactoryMethod {
 
-    public Comparator comparator(SearchType searchType, ArgumentList argument){
+    public Comparator comparator(SearchType searchType, ArgumentStore argument){
 
         return switch (searchType) {
             case Full    -> new FullComparator(argument);

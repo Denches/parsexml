@@ -1,6 +1,6 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -10,7 +10,7 @@ public class EqualComparatorTest {
 
     @Test
     void equalCompare(){
-        ArgumentList argument = new ArgumentList();
+        ArgumentStore argument = new ArgumentStore();
         argument.setMask("file-776194140.xml");
         Comparator comparator = new EqualComparator(argument);
 

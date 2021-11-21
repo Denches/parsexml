@@ -1,6 +1,6 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ public class RegularComparatorTest{
 
     @Test
     void regularCompare(){
-        ArgumentList argument = new ArgumentList();
+        ArgumentStore argument = new ArgumentStore();
         argument.setMask(".*?[a-z]{4}-\\d+\\.[a-z]+");
         Comparator comparator = new RegularComparator(argument);
 

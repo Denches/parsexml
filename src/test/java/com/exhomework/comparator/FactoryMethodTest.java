@@ -1,7 +1,7 @@
 package com.exhomework.comparator;
 
 import com.exhomework.constant.XConstant;
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,7 +11,7 @@ public class FactoryMethodTest {
     @DisplayName("Create classes with correct type")
     @Test
     void createClassesWithCorrectType(){
-        ArgumentList argument = new ArgumentList();
+        ArgumentStore argument = new ArgumentStore();
         argument.setMask("");
         FactoryMethod factory = new FactoryMethod();
 

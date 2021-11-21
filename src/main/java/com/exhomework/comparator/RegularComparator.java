@@ -1,6 +1,6 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,7 +9,7 @@ public class RegularComparator extends Comparator {
 
     private final Pattern pattern;
 
-    public RegularComparator(ArgumentList argument) {
+    public RegularComparator(ArgumentStore argument) {
         super(argument);
 
         pattern = Pattern.compile(argument.getMask());

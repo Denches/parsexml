@@ -2,7 +2,7 @@ package com.exhomework.parser;
 
 import com.exhomework.comparator.Comparator;
 import com.exhomework.comparator.FactoryMethod;
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class ReadXmlSaxParser {
 
-    public void parse(ArgumentList argument){
+    public void parse(ArgumentStore argument){
 
         SAXParserFactory saxFactory = SAXParserFactory.newInstance();
 

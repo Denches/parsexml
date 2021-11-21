@@ -1,10 +1,10 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 
 public class EqualComparator extends Comparator {
 
-    public EqualComparator(ArgumentList argument) {
+    public EqualComparator(ArgumentStore argument) {
         super(argument);
     }
 

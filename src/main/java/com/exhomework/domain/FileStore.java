@@ -1,15 +1,14 @@
 package com.exhomework.domain;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static com.exhomework.constant.XConstant.SPLIT_DIR;
 
 public class FileStore {
     private boolean isFile;
-    private final List<String> dir = new ArrayList<>();
+    private final Stack<String> dir = new Stack<>();
 
-    protected void print(String filename, String dir){
+    private void print(String filename, String dir){
         System.out.println(dir + filename);
     }
 
@@ -18,7 +17,18 @@ public class FileStore {
     }
 
     public void closeDir(){
-        dir.remove(dir.size() - 1);
+        dir.pop();
+    }
+
+    public void store(String name, boolean equal){
+
+        if(isFile()){
+            if (equal){
+                print(name, getCurDir());
+            }
+        } else{
+            setDir(name);
+        }
     }
 
     public boolean isFile() {
@@ -30,6 +40,6 @@ public class FileStore {
     }
 
     public void setDir(String name) {
-        dir.add(!name.equals(SPLIT_DIR) ? name + SPLIT_DIR : name);
+        dir.push(!name.equals(SPLIT_DIR) ? name + SPLIT_DIR : name);
     }
 }

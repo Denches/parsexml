@@ -1,6 +1,6 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,7 +9,7 @@ public class MaskComparator extends Comparator {
 
     private final Pattern pattern;
 
-    public MaskComparator(ArgumentList argument) {
+    public MaskComparator(ArgumentStore argument) {
         super(argument);
 
         String newMask = processingMask();

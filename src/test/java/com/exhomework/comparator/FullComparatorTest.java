@@ -1,6 +1,6 @@
 package com.exhomework.comparator;
 
-import com.exhomework.domain.ArgumentList;
+import com.exhomework.domain.ArgumentStore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ public class FullComparatorTest{
 
     @Test
     void fullCompare(){
-        ArgumentList argument = new ArgumentList();
+        ArgumentStore argument = new ArgumentStore();
         argument.setMask(null);
         Comparator comparator = new FullComparator(argument);
 
