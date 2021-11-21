@@ -38,7 +38,9 @@ where `<xml_file>` is a path to the provided xml file; `<input>` is search strin
 
 ## Examples
 No search input:  
-`$ java -jar assignment.jar -f test-files.xml`
+`$ java -jar assignment.jar -f test-files.xml`  
+
+Output:
 ```
 /file-776194140.xml
 /dir-880176375/file-1073842118.java
@@ -46,17 +48,23 @@ No search input:
 ```
 
 Exact search input:  
-`$ java -jar assignment.jar -f test-files.xml -s file-1498940214.xhtml`
+`$ java -jar assignment.jar -f test-files.xml -s file-1498940214.xhtml`  
+
+Output:
 ```
 /dir-880176375/dir-2145307015/file-1498940214.xhtml
 ```
 Simple search input:  
-`$ java -jar assignment.jar -f test-files.xml -s '*.java'`
+`$ java -jar assignment.jar -f test-files.xml -s '*.java'`  
+
+Output:
 ```
 /dir-880176375/file-1073842118.java
 ```
 Extended search input:  
-`$ java -jar assignment.jar -f test-files.xml -S '.*?[a-z]{4}-\d+\.[a-z]+'`
+`$ java -jar assignment.jar -f test-files.xml -S '.*?[a-z]{4}-\d+\.[a-z]+'`  
+
+Output:
 ```
 /file-776194140.xml
 /dir-880176375/file-1073842118.java
